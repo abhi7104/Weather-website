@@ -9,9 +9,7 @@ const forecast=(latitude,longitude,callback)=>{
         else if(body.message){
             callback('unable to find location',undefined)
         }else{
-            const k= body.main.temp
-            const t= k-273.15
-            callback(undefined,'Current temperature is ' + t +' degree')
+            callback(undefined,'Current Temperature is ' + parseInt(body.main.temp-273.15) +' degree. This high today is '+parseInt(body.main.temp_max-273.15)+' with low of '+ parseInt(body.main.temp_min-273.15)+'. Humidity '+body.main.humidity+'% and Wind speed is '+ parseInt(body.wind.speed*3.6)+'kmph')
             }
         })
 }
